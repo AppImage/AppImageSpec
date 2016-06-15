@@ -69,6 +69,7 @@ An AppImage which conforms to the type 1 image format:
 ### Contents of the image
 
 The filesystem image:
+* Is an AppDir
 * **MUST** contain a file named `AppRun` in its root directory
 * **SHOULD** contain a payload application that is ultimately executed when the AppImage is executed
 * **SHOULD** contain exactly one `$APPNAME.desktop` file in its root directory with `$APPNAME` being the name of the payload application
@@ -83,11 +84,13 @@ The `AppRun` file:
 * **MUST** work even when stored in a filesystem path that contains blanks or when stored with a file name that contains blanks
 * **SHOULD** pass any arguments passed to it to the payload application either directly or indirectly (i.e., by invoking other helper binaries or scripts which, in turn, launch the payload application) if it is not explicitly deemed useful otherwise
 * **SHOULD** pass any environment variables passed to it to the payload application either directly or indirectly (i.e., by invoking other helper binaries or scripts which, in turn, launch the payload application) if it is not explicitly deemed useful otherwise
+* **MAY** `cd` to a directory inside the AppImage at runtime before executing the payload application, commonly `./usr/` 
 
 The payload application:
 * **MAY** be an ELF binary or an interpreted script
 * If it is an ELF binary, it **SHOULD** have as few dynamic library dependencies as possible and each dynamic library dependency **MUST** be included in the AppImage *IF* it cannot be assumed to be part of every target system in a recent enough version
 * If it is an interpreted script, it **SHOULD** be written in a language in which an interpreter can be assumed to be available on every target system, otherwise the interpreter **MUST** be included in the AppImage
+* It is **RECOMMENDED** that the payload application and its dependencies are located in a `$PREFIX` directory tree inside the AppDir with `$PREFIX` commonly being `./usr/`; it is **RECOMMENDED** that the `$PREFIX` directory tree inside the AppDir follows the [File System Hierarchy conventions for `/usr`](http://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch04.html)
 
 ### Metadata
 
