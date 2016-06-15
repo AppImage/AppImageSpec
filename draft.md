@@ -48,6 +48,7 @@ The image format determines how an AppImage is represented on disk. Currently th
 #### Type 1 image format
 
 An AppImage which conforms to the type 1 image format:
+
 * **MUST** be an [ISO 9660](http://www.ecma-international.org/publications/standards/Ecma-119.htm) file
 * **MUST** use [Rock Ridge](http://www.ymi.com/ymi/sites/default/files/pdf/Rockridge.pdf) extensions
 * **MUST** be a vaild [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) executable 
@@ -61,7 +62,7 @@ An AppImage which conforms to the type 1 image format:
 
 #### <a name="updateinformation"></a>Update information
 
-An AppImage **MAY** have update information embedded. Currently two transport mechanisms are available:
+An AppImage **MAY** have update information embedded for update mechanisms to use. Currently two transport mechanisms are available:
  * zsync
  * bintray-zsync
  
