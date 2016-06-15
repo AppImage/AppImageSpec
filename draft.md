@@ -27,9 +27,6 @@ The AppImage file format which can be used to deploy application software to Lin
 ##### <a name="AppImageKit"></a>AppImageKit
 Reference implementation for building AppImages. https://github.com/probonopd/AppImageKit
 
-##### <a name="Base system"></a>Base system(s)
-The target system(s) the application software packaged as an AppImage is intended to run on
-
 ##### <a name="desktop file"></a>.desktop file
 A file following the [Desktop Entry Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/).
 
@@ -38,6 +35,9 @@ Mime type definitions are spread across several resources. The mime type definit
 
 ##### <a name="payloadap"></a>Payload application
 The application software contained inside an AppImage
+
+##### <a name="Target system"></a>Target system(s)
+The target system(s) the application software packaged as an AppImage is intended to run on. The person or group creating an AppImage can decide which target systems the AppImage needs to run on, and **SHOULD** communicate the system requirements clearly to users
 
 ##### <a name="zsync"></a>zsync
 A file transfer algorithm which implements efficient download of only the content of a file which is not already known to the receiver. http://zsync.moria.org.uk/paper/
@@ -87,7 +87,6 @@ The payload application:
 * **MAY** be an ELF binary or an interpreted script
 * If it is an ELF binary, it **SHOULD** have as few dynamic library dependencies as possible and each dynamic library dependency **MUST** be included in the AppImage *IF* it cannot be assumed to be part of every target system in a recent enough version
 * If it is an interpreted script, it **SHOULD** be written in a language in which an interpreter can be assumed to be available on every target system, otherwise the interpreter **MUST** be included in the AppImage
-* **SHOULD** be compiled on a build system that maximizes compatibility with as many target systems as desired
 
 ### Metadata
 
