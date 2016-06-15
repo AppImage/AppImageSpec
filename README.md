@@ -1,6 +1,6 @@
 # AppImage Specification
 
-This repository holds the specification for the AppImage format Its objectives are to:
+This repository holds the specification for the AppImage format. The objectives of this specification are to:
 
 1. Be a single, definitive source of information about the AppImage format
 2. Ensure AppImages behave in a consistent manner, thereby enabling third-party developers to write AppImage management applications and distributions to offer built-in support for AppImages
