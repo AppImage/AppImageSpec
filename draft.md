@@ -62,7 +62,7 @@ An AppImage which conforms to the type 1 image format:
 
 #### <a name="updateinformation"></a>Update information
 
-An AppImage **MAY** have update information embedded for update mechanisms to use. Currently two transport mechanisms are available:
+An AppImage **MAY** have update information embedded for exactly one transport mechanism. Currently two transport mechanisms are available, but only one may be used for each given Appimage:
  * zsync
  * bintray-zsync
  
@@ -74,7 +74,14 @@ The __zsync__ transport requires a HTTP server that can handle HTTP range reques
 zsync|http://server.domain/path/Application-latest-x86_64.AppImage.zsync
 ```
 
-For an overview about zsync and how to create `.zsync` files, see [http://zsync.moria.org.uk/](http://zsync.moria.org.uk/). See [http://zsync.moria.org.uk/server-issues](http://zsync.moria.org.uk/server-issues) for more information.
+If an AppImage has update information embedded for this transport mechanism, then the following fields **MUST** be used; separated by a "|" character:
+
+Field | Type | Example | Comments
+----------- | ------ | -------- | --------
+Transport mechanism | String | `zsync` | zsync file and AppImage **MUST** be stored on  [compatible](http://zsync.moria.org.uk/server-issues) HTTP server
+zsync file URL | String | `http://server.domain/path/Application-latest-x86_64.AppImage.zsync` | URL to the `.zsync` file (URL **MUST NOT** change from version to version)
+
+For an overview about zsync and how to create `.zsync` files, see [http://zsync.moria.org.uk/](http://zsync.moria.org.uk/).
 
 ##### bintray-zsync
 
@@ -83,3 +90,13 @@ The __bintray-zsync__ transport extends the zsync transport in that it uses vers
 ```
 bintray-zsync|probono|AppImages|Subsurface|Subsurface-_latestVersion-x86_64.AppImage.zsync
 ```
+
+If an AppImage has update information embedded for this transport mechanism, then the following fields **MUST** be used; separated by a "|" character:
+
+Field | Type | Example | Comments
+----------- | ------ | -------- | --------
+Transport mechanism | String | `bintray-zsync` | zsync file and AppImage **MUST** be stored on Bintray
+Bintray username | String | `probono` | Name of the user or organization of the account where the zsync file and AppImage are stored
+Bintray repository | String | `AppImages` | Name of the repository in which the zsync file and AppImage are stored
+Bintray package name | String | `Subsurface` | Name of the [Bintray package](https://bintray.com/docs/usermanual/uploads/uploads_creatinganewpackage.html) in which the zsync file and AppImage are stored
+Bintray zsync path | String | `Subsurface-_latestVersion-x86_64.AppImage.zsync` | Path where the zsync file is stored on Bintray (**MUST NOT** change from version to version). Note the use of the Bintray feature `_latestVersion` to facilitate this
