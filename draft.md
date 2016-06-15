@@ -131,3 +131,14 @@ Bintray username | String | `probono` | Name of the user or organization of the 
 Bintray repository | String | `AppImages` | Name of the repository in which the zsync file and AppImage are stored
 Bintray package name | String | `Subsurface` | Name of the [Bintray package](https://bintray.com/docs/usermanual/uploads/uploads_creatinganewpackage.html) in which the zsync file and AppImage are stored
 Bintray zsync path | String | `Subsurface-_latestVersion-x86_64.AppImage.zsync` | Path where the zsync file is stored on Bintray (**MUST NOT** change from version to version). Note the use of the Bintray feature `_latestVersion` to facilitate this
+
+### Desktop integration
+
+The software inside the AppImage **MAY** integrate into the desktop environment (e.g., by installing a `.desktop` file into the host system) on the user's behalf. However if it does so, it *SHOULD* ensure to get the explicit permission of the user, e.g., by asking for permission in a GUI window, or by reacting to a command line argument.
+
+The software inside the AppImage **SHOULD NOT** attempt to do desktop integration if at least one of the following conditions are met:
+* A file `$HOME/.local/share/appimagekit/no_desktopintegration` exists on the target system
+* A file `/usr/share/appimagekit/no_desktopintegration` exists on the target system
+* A file `/etc/appimagekit/no_desktopintegration` exists on the target system
+* A process named `appimaged` is running on the system
+* The environment variable `$DESKTOPINTEGRATION` is not empty
