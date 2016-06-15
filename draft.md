@@ -69,6 +69,7 @@ An AppImage which conforms to the type 1 image format:
 
 The filesystem image:
 * **MUST** contain a file named `AppRun` in its root directory
+* **SHOULD** contain a payload application that is ultimately executed when the AppImage is executed
 * **SHOULD** contain exactly one `$APPNAME.desktop` file in its root directory with `$APPNAME` being the name of the payload application
 * **MAY** contain an `$APPNAME.png` file in its root directory with `$APPNAME` being the name of the payload application as set in the `Icon=` key of the `$APPNAME.desktop` file. If present, this icon **SHOULD** be given preference as the icon being used to represent the AppImage. The icon **SHOULD** be a png with 256x256 or 512*512 pixels
 * **SHOULD** contain a `.DirIcon` file as per the AppDir specification
@@ -81,6 +82,12 @@ The `AppRun` file:
 * **MUST** work even when stored in a filesystem path that contains blanks or when stored with a file name that contains blanks
 * **SHOULD** pass any arguments passed to it to the payload application either directly or indirectly (i.e., by invoking other helper binaries or scripts which, in turn, launch the payload application) if it is not explicitly deemed useful otherwise
 * **SHOULD** pass any environment variables passed to it to the payload application either directly or indirectly (i.e., by invoking other helper binaries or scripts which, in turn, launch the payload application) if it is not explicitly deemed useful otherwise
+
+The payload application:
+* **MAY** be an ELF binary or an interpreted script
+* If it is an ELF binary, it **SHOULD** have as few dynamic library dependencies as possible and each dynamic library dependency **MUST** be included in the AppImage *IF* it cannot be assumed to be part of every target system in a recent enough version
+* If it is an interpreted script, it **SHOULD** be written in a language in which an interpreter can be assumed to be available on every target system, otherwise the interpreter **MUST** be included in the AppImage
+* **SHOULD** be compiled on a build system that maximizes compatibility with as many target systems as desired
 
 ### Metadata
 
