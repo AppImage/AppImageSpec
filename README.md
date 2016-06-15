@@ -4,9 +4,9 @@ This repository holds the specification for the AppImage format. The objectives 
 
 1. Be a single, definitive source of information about the AppImage format
 2. Ensure AppImages behave in a consistent manner, thereby enabling third-party developers to write AppImage management applications and distributions to offer built-in support for AppImages
-3. Serve as a guide for AppImageKit development
-4. Provide a developer who with a checklist for creating AppImages
-5. Enable a lintian-style application to be written to check AppImages for compliance with the standard
+3. Serve as a guide for [AppImageKit](https://github.com/probonopd/AppImageKit) development
+4. Provide developers with a checklist for creating AppImages
+5. Enable a lintian-style application to be written to check AppImages for compliance with the standard ([start here](https://github.com/probonopd/AppImages/blob/master/appdir-lint.sh))
 6. Indicate the direction of the project and warn developers of future changes to the AppImage format
 7. Document the open nature of the AppImage format
 
