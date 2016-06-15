@@ -24,8 +24,17 @@ Application directories as used in the ROX desktop. http://rox.sourceforge.net/d
 ##### <a name="AppImage"></a>AppImage
 The AppImage file format which can be used to deploy application software to Linux-based operating systems. Depending on the context, the term can also refer to an application packaged in this format.
 
+##### <a name="AppImageKit"></a>AppImageKit
+F reference implementation for building AppImages. https://github.com/probonopd/AppImageKit
+
 ##### <a name="Base system"></a>Base system(s)
 The target system(s) the application software packaged as an AppImage is intended to run on.
 
+##### <a name="desktop file"></a>.desktop file
+A file following the [Desktop Entry Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/).
+
 ##### <a name="mimeTypes"></a>Mime Types
 Mime type definitions are spread across several resources. The mime type definitions should be in compliance with [RFC 6838](http://tools.ietf.org/html/rfc6838).
+
+##### <a name="zsync"></a>zsync
+A file transfer algorithm which implements efficient download of only the content of a file which is not already known to the receiver. http://zsync.moria.org.uk/paper/
