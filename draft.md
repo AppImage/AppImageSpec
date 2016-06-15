@@ -45,6 +45,10 @@ A file transfer algorithm which implements efficient download of only the conten
 
 The image format determines how an AppImage is represented on disk. Currently there is only one defined image format, however, there could be additional image formats in the future.
 
+#### Type 0 image format
+
+Reserved for not fully standards-compliant AppImages (e.g., portable binaries that look and behave like AppImages on a user level, but do not conform to a standard on a programming level). 
+
 #### Type 1 image format
 
 An AppImage which conforms to the type 1 image format:
