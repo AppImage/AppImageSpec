@@ -38,3 +38,17 @@ Mime type definitions are spread across several resources. The mime type definit
 
 ##### <a name="zsync"></a>zsync
 A file transfer algorithm which implements efficient download of only the content of a file which is not already known to the receiver. http://zsync.moria.org.uk/paper/
+
+## Specification
+
+### Image format
+
+The image format determines how an AppImage is represented on disk. Currently there is only one defined image format, however, there could be additional image formats in the future.
+
+#### Type 1
+
+An AppImage which conforms to the type 1 image format:
+* **MUST** be an [ISO 9660](http://www.ecma-international.org/publications/standards/Ecma-119.htm) file
+* **MUST** use [Rock Ridge](http://www.ymi.com/ymi/sites/default/files/pdf/Rockridge.pdf) extensions
+* **MUST** be a vaild ELF executable 
+* **MUST**, when executed, mount the AppImage and execute the executable file `AppRun` contained in the root of the ISO 9660 filesystem
