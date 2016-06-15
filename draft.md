@@ -91,6 +91,8 @@ The payload application:
 
 ### Metadata
 
+Setion to be expanded; additional metadata is being discussed on https://github.com/probonopd/AppImageKit/issues/59
+
 #### <a name="updateinformation"></a>Update information
 
 An AppImage **MAY** have update information embedded for exactly one transport mechanism. The location in which this information is stored is defined by the [image format](#image-format). Currently two transport mechanisms are available, but only one can be used for each given AppImage:
