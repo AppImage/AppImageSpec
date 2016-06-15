@@ -52,5 +52,34 @@ An AppImage which conforms to the type 1 image format:
 * **MUST** use [Rock Ridge](http://www.ymi.com/ymi/sites/default/files/pdf/Rockridge.pdf) extensions
 * **MUST** be a vaild [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) executable 
 * **MUST**, when executed, mount the AppImage and execute the executable file `AppRun` contained in the root of the ISO 9660 filesystem
-* **MUST NOT** rely on any specific file name extension, although it is **RECOMMENDED** that the file name extension `.AppImage` is used whenever a file name extension is desired
+* **MUST NOT** rely on any specific file name extension, although it is **RECOMMENDED** that the file name extension `.AppImage` is used whenever a file name extension is desired. Futher it is **RECOMMENDED** to follow the naming scheme `ApplicationName-$VERSION-$ARCH.AppImage` in cases in which it is desired to convey this information in the file name
+* **SHOULD** not be encapsulated in another archive/container format during download or when stored
 * **MUST** work even when stored in a filesystem path that contains blanks or when stored with a file name that contains blanks
+* **MAY** embed [update information](#updateinformation) in the ISO 9660 Volume Descriptor field (offset 33651).
+
+### Metadata
+
+#### <a name="updateinformation"></a>Update information
+
+Currently two transport mechanisms are implemented:
+ * zsync
+ * bintray-zsync
+ 
+##### zsync
+
+The __zsync__ transport requires only a HTTP server that can handle HTTP range requests. Its update information is in the form
+
+```
+zsync|http://server.domain/path/Application-latest-x86_64.AppImage.zsync
+```
+
+For an overview about zsync and how to create `.zsync` files, see [http://zsync.moria.org.uk/](http://zsync.moria.org.uk/).
+As you can see, you just need to point to a fixed URL that has the `latest` zsync file. zsync can work with most servers that support returning partial content from files, as is also used for video streaming. See [http://zsync.moria.org.uk/server-issues](http://zsync.moria.org.uk/server-issues) for more information.
+
+##### bintray-zsync
+
+The __bintray-zsync__ transport extends the zsync transport in that it uses version information from [Bintray](http://bintray.com/). Its update information is in the form
+
+```
+bintray-zsync|probono|AppImages|Subsurface|Subsurface-_latestVersion-x86_64.AppImage.zsync
+```
