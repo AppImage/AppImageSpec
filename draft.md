@@ -92,7 +92,7 @@ The payload application:
 
 #### <a name="updateinformation"></a>Update information
 
-An AppImage **MAY** have update information embedded for exactly one transport mechanism. Currently two transport mechanisms are available, but only one may be used for each given Appimage:
+An AppImage **MAY** have update information embedded for exactly one transport mechanism. The location in which this information is stored is defined by the [image format](#image-format). Currently two transport mechanisms are available, but only one can be used for each given AppImage:
  * zsync
  * bintray-zsync
  
