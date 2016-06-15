@@ -58,6 +58,23 @@ An AppImage which conforms to the type 1 image format:
 * **MUST** work even when stored in a filesystem path that contains blanks or when stored with a file name that contains blanks
 * **MAY** embed [update information](#updateinformation) in the ISO 9660 Volume Descriptor field (offset 33651). If the information in this location is not in one of the known [update information](#updateinformation) formats, then it **SHOULD** be empty and/or be ignored.
 
+### Contents of the image
+
+The filesystem image:
+* **MUST** contain a file named `AppRun` in its root directory
+* **SHOULD** contain exactly one `$APPNAME.desktop` file in its root directory with `$APPNAME` being the name of the payload application
+* **MAY** contain an `$APPNAME.png` file in its root directory with `$APPNAME` being the name of the payload application as set in the `Icon=` key of the `$APPNAME.desktop` file. If present, this icon **SHOULD** be given preference as the icon being used to represent the AppImage. The icon **SHOULD** be a png with 256x256 or 512*512 pixels
+* **SHOULD** contain a `.DirIcon` file as per the AppDir specification
+
+The `AppRun` file:
+* **MUST** be executable and, when executed, launch the payload application either directly or indirectly (i.e., by invoking other helper binaries or scripts which, in turn, launch the payload application)
+* **MAY** be an ELF binary or an interpreted script
+* If it is an ELF binary, it **SHOULD** have as few runtime dependencies as possible
+* If it is an interpreted script, it **SHOULD** be written in a language in which an interpreter can be assumed to be available on every target system
+* **MUST** work even when stored in a filesystem path that contains blanks or when stored with a file name that contains blanks
+* **SHOULD** pass any arguments passed to it to the payload application either directly or indirectly (i.e., by invoking other helper binaries or scripts which, in turn, launch the payload application) if it is not explicitly deemed useful otherwise
+* **SHOULD** pass any environment variables passed to it to the payload application either directly or indirectly (i.e., by invoking other helper binaries or scripts which, in turn, launch the payload application) if it is not explicitly deemed useful otherwise
+
 ### Metadata
 
 #### <a name="updateinformation"></a>Update information
