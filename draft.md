@@ -61,20 +61,19 @@ An AppImage which conforms to the type 1 image format:
 
 #### <a name="updateinformation"></a>Update information
 
-Currently two transport mechanisms are implemented:
+An AppImage **MAY** have update information embedded. Currently two transport mechanisms are available:
  * zsync
  * bintray-zsync
  
 ##### zsync
 
-The __zsync__ transport requires only a HTTP server that can handle HTTP range requests. Its update information is in the form
+The __zsync__ transport requires a HTTP server that can handle HTTP range requests. Its update information is in the form
 
 ```
 zsync|http://server.domain/path/Application-latest-x86_64.AppImage.zsync
 ```
 
-For an overview about zsync and how to create `.zsync` files, see [http://zsync.moria.org.uk/](http://zsync.moria.org.uk/).
-As you can see, you just need to point to a fixed URL that has the `latest` zsync file. zsync can work with most servers that support returning partial content from files, as is also used for video streaming. See [http://zsync.moria.org.uk/server-issues](http://zsync.moria.org.uk/server-issues) for more information.
+For an overview about zsync and how to create `.zsync` files, see [http://zsync.moria.org.uk/](http://zsync.moria.org.uk/). See [http://zsync.moria.org.uk/server-issues](http://zsync.moria.org.uk/server-issues) for more information.
 
 ##### bintray-zsync
 
