@@ -58,6 +58,7 @@ An AppImage which conforms to the type 1 image format:
 
 * **MUST** be an [ISO 9660](http://www.ecma-international.org/publications/standards/Ecma-119.htm) file
 * **MUST** use [Rock Ridge](http://www.ymi.com/ymi/sites/default/files/pdf/Rockridge.pdf) extensions
+* **SHOULD** use [zisofs](http://libburnia-project.org/wiki/zisofs) compression
 * **MUST** be a vaild [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) executable 
 * **MUST**, when executed, mount the AppImage and execute the executable file `AppRun` contained in the root of the ISO 9660 filesystem
 * **MUST NOT** rely on any specific file name extension, although it is **RECOMMENDED** that the file name extension `.AppImage` is used whenever a file name extension is desired. Futher it is **RECOMMENDED** to follow the naming scheme `ApplicationName-$VERSION-$ARCH.AppImage` in cases in which it is desired to convey this information in the file name
