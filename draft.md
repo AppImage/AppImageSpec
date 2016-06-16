@@ -83,7 +83,7 @@ The `AppRun` file:
 * **MAY** be an ELF binary or an interpreted script
 * If it is an ELF binary, it **SHOULD** have as few runtime dependencies as possible
 * If it is an interpreted script, it **SHOULD** be written in a language in which an interpreter can be assumed to be available on every target system
-* **MUST** work even when stored in a filesystem path that contains blanks or when stored with a file name that contains blanks
+* **MUST** work even when stored in a filesystem path that contains blanks
 * **SHOULD** pass any arguments passed to it to the payload application either directly or indirectly (i.e., by invoking other helper binaries or scripts which, in turn, launch the payload application) if it is not explicitly deemed useful otherwise
 * **SHOULD** pass any environment variables passed to it to the payload application either directly or indirectly (i.e., by invoking other helper binaries or scripts which, in turn, launch the payload application) if it is not explicitly deemed useful otherwise
 * **MAY** `cd` to a directory inside the AppImage at runtime before executing the payload application, commonly `./usr/` 
