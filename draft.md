@@ -100,7 +100,7 @@ Setion to be expanded; additional metadata is being discussed on https://github.
 
 #### AppStream
 
-An AppImage **SHOULD** ship `usr/share/appdata/$ID.xml` with `$ID` being the AppStream ID. Shipping AppStream information enables the AppImage to be discoverable in application centers and/or application directory websites. If it does, then it **MUST** follow the AppStream [guidelines for applications](https://github.com/hughsie/appstream-glib#guidelines-for-applications).
+An AppImage **SHOULD** ship AppStream metadata in `usr/share/metainfo/$ID.xml` with `$ID` being the AppStream ID. Shipping AppStream information enables the AppImage to be discoverable in application centers and/or application directory websites. If it does, then it **MUST** follow the AppStream [guidelines for applications](https://github.com/hughsie/appstream-glib#guidelines-for-applications).
 
 #### <a name="updateinformation"></a>Update information
 
