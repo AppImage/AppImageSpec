@@ -98,6 +98,10 @@ The payload application:
 
 Setion to be expanded; additional metadata is being discussed on https://github.com/probonopd/AppImageKit/issues/59
 
+#### AppStream
+
+An AppImage **SHOULD** ship `usr/share/appdata/$ID.xml` with `$ID` being the AppStream ID. Shipping AppStream information enables the AppImage to be discoverable in application centers and/or application directory websites. If it does, then it **MUST** follow the AppStream [guidelines for applications](https://github.com/hughsie/appstream-glib#guidelines-for-applications).
+
 #### <a name="updateinformation"></a>Update information
 
 An AppImage **MAY** have update information embedded for exactly one transport mechanism. The location in which this information is stored is defined by the [image format](#image-format). Currently two transport mechanisms are available, but only one can be used for each given AppImage:
