@@ -58,7 +58,7 @@ Application directories as used in the [ROX Desktop](http://rox.sourceforge.net/
 [AppDir]: #appdir "AppDir: Application Directory (as used in the ROX Desktop)"
 
 ##### AppImage
-The AppImage file format which can be used to deploy application software to Linux-based operating systems. Depending on the context, the term can also refer to an application packaged in this format.
+The AppImage file format which can be used to deploy application software to Linux-based operating systems. Depending on the context, the term can also refer to an application packaged in this format
 
 [AppImage]: #appimage "AppImage: The packaging format defined in this Specification, or an application packaged in this format"
 
@@ -68,7 +68,7 @@ Reference implementation for building AppImages. <https://github.com/probonopd/A
 [AppImageKit]: #appimagekit "AppImageKit: A packaging tool for building AppImages"
 
 ##### .desktop file
-A Desktop Entry File following the [Desktop Entry Specification](https://specifications.freedesktop.org/desktop-entry-spec/latest/).
+A Desktop Entry File following the [Desktop Entry Specification](https://specifications.freedesktop.org/desktop-entry-spec/latest/)
 
 [.desktop file]: #desktop-file ".desktop file: A Desktop Entry File following the Desktop Entry Specificiation"
 
