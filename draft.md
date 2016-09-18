@@ -10,11 +10,12 @@ The AppImage Specification is licensed under [The MIT License](https://github.co
 
 * [Introduction]
 * [Revision History]
-* [Definitions]m
+* [Definitions]
 * [Specification]
     - [Image format]
         + [Type 0 image format]
         + [Type 1 image format]
+        + [Type 2 image format]
     - [Contents of the image]
         + [The filesystem image]
         + [The AppRun file]
@@ -49,6 +50,7 @@ The AppImage Specification describes [AppImage], a format to deploy application 
 Version | Date | Notes
 --- | --- | ---
 Draft | 2016-06-15 | Initial draft of the AppImage Specification started
+Draft | 2016-09-18 | Type 2 image format drafted
 
 ## Definitions
 
@@ -117,6 +119,19 @@ An [AppImage] which conforms to the type 1 image format:
 * **MUST** work even when stored in a filesystem path that contains blanks or when stored with a file name that contains blanks
 * **MAY** embed [update information] in the ISO 9660 Volume Descriptor field (offset 33651). If the information in this location is not in one of the known [update information] formats, then it **SHOULD** be empty and/or be ignored
 * **SHOULD** contain the magic hex `0x414901` at offset 8 ([why?](https://github.com/probonopd/AppImageKit/issues/144))
+
+#### Type 2 image format
+
+An [AppImage] which conforms to the type 2 image format:
+
+* **MUST** be a vaild [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) executable 
+* **MUST** have appended to it a filesystem that the ELF part can mount
+* **MUST**, when executed, mount the [AppImage] and execute the executable file `AppRun` contained in the root of the filesystem image
+* **MUST NOT** rely on any specific file name extension, although it is **RECOMMENDED** that the file name extension `.AppImage` is used whenever a file name extension is desired. Futher it is **RECOMMENDED** to follow the naming scheme `ApplicationName-$VERSION-$ARCH.AppImage` in cases in which it is desired to convey this information in the file name
+* **SHOULD** not be encapsulated in another archive/container format during download or when stored
+* **MUST** work even when stored in a filesystem path that contains blanks or when stored with a file name that contains blanks
+* **MAY** embed [update information] in the ELF PT_NOTE section `.note.upd-info`. If the information in this location is not in one of the known [update information] formats, then it **SHOULD** be empty and/or be ignored
+* **SHOULD** contain the magic hex `0x414902` at offset 8 ([why?](https://github.com/probonopd/AppImageKit/issues/144))
 
 ### Contents of the image
 
