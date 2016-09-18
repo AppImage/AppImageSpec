@@ -32,6 +32,7 @@ The AppImage Specification is licensed under [The MIT License](https://github.co
 [Image format]: #image-format "Specification - Image Format"
   [Type 0 image format]: #type-0-image-format "Specification - Image Format - Type 0 image format"
   [Type 1 image format]: #type-1-image-format "Specification - Image Format - Type 1 image format"
+  [Type 2 image format]: #type-2-image-format "Specification - Image Format - Type 2 image format"
 [Contents of the image]: #contents-of-the-image "Specification - Contents of the image"
   [The filesystem image]: #the-filesystem-image "Specification - Contents of the image - The filesystem image"
   [The AppRun file]: #the-apprun-file "Specification - Contents of the image - The AppRun file"
