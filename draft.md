@@ -131,7 +131,7 @@ An [AppImage] which conforms to the type 2 image format:
 * **MUST NOT** rely on any specific file name extension, although it is **RECOMMENDED** that the file name extension `.AppImage` is used whenever a file name extension is desired. Futher it is **RECOMMENDED** to follow the naming scheme `ApplicationName-$VERSION-$ARCH.AppImage` in cases in which it is desired to convey this information in the file name
 * **SHOULD** not be encapsulated in another archive/container format during download or when stored
 * **MUST** work even when stored in a filesystem path that contains blanks or when stored with a file name that contains blanks
-* **MAY** embed [update information] in the ELF PT_NOTE section `.note.upd-info`. If the information in this location is not in one of the known [update information] formats, then it **SHOULD** be empty and/or be ignored
+* **MAY** embed [update information] in the ELF section `.upd_info`. If the information in this location is not in one of the known [update information] formats, then it **SHOULD** be empty and/or be ignored
 * **SHOULD** contain the magic hex `0x414902` at offset 8 ([why?](https://github.com/probonopd/AppImageKit/issues/144))
 
 ### Contents of the image
