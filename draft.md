@@ -132,6 +132,7 @@ An [AppImage] which conforms to the type 2 image format:
 * **SHOULD** not be encapsulated in another archive/container format during download or when stored
 * **MUST** work even when stored in a filesystem path that contains blanks or when stored with a file name that contains blanks
 * **MAY** embed [update information] in the ELF section `.upd_info`. If the information in this location is not in one of the known [update information] formats, then it **SHOULD** be empty and/or be ignored
+* **MAY** embed a digital signature in the ELF section `.sha256_sig`. If this section exists then it **MUST** either be empty or contain a valid digital signature of the sha256 of the AppImage assuming the ELF section `.sha256_sig` being filled with `0x00` padding ([why?](https://github.com/probonopd/AppImageKit/issues/238#issuecomment-249412813))
 * **SHOULD** contain the magic hex `0x414902` at offset 8 ([why?](https://github.com/probonopd/AppImageKit/issues/144))
 
 ### Contents of the image
