@@ -113,7 +113,7 @@ An [AppImage] which conforms to the type 1 image format:
 * **MUST** use [Rock Ridge](http://www.ymi.com/ymi/sites/default/files/pdf/Rockridge.pdf) extensions
 * **MAY** use [Joliet](http://support.microsoft.com/kb/125630) extensions
 * **SHOULD** use [zisofs](http://libburnia-project.org/wiki/zisofs) compression
-* **MUST** be a vaild [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) executable 
+* **MUST** be a valid [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) executable 
 * **MUST**, when executed, mount the [AppImage] and execute the executable file `AppRun` contained in the root of the ISO 9660 filesystem
 * **MUST NOT** rely on any specific file name extension, although it is **RECOMMENDED** that the file name extension `.AppImage` is used whenever a file name extension is desired. Futher it is **RECOMMENDED** to follow the naming scheme `ApplicationName-$VERSION-$ARCH.AppImage` in cases in which it is desired to convey this information in the file name
 * **SHOULD** not be encapsulated in another archive/container format during download or when stored
@@ -125,7 +125,7 @@ An [AppImage] which conforms to the type 1 image format:
 
 An [AppImage] which conforms to the type 2 image format:
 
-* **MUST** be a vaild [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) executable 
+* **MUST** be a valid [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) executable 
 * **MUST** have appended to it a filesystem that the ELF part can mount
 * **MUST**, when executed, mount the [AppImage] and execute the executable file `AppRun` contained in the root of the filesystem image
 * **MUST NOT** rely on any specific file name extension, although it is **RECOMMENDED** that the file name extension `.AppImage` is used whenever a file name extension is desired. Futher it is **RECOMMENDED** to follow the naming scheme `ApplicationName-$VERSION-$ARCH.AppImage` in cases in which it is desired to convey this information in the file name
