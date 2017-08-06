@@ -201,14 +201,14 @@ For an overview about [zsync] and how to create `.zsync` files, see [http://zsyn
 The __GitHub Releases__ transport extends the [zsync] transport in that it uses version information from [GitHub Releases](https://help.github.com/articles/about-releases/). Its [update information] is in the form
 
 ```
-gh-zsync|probono|AppImages|latest|Subsurface-*-x86_64.AppImage.zsync
+gh-releases-zsync|probono|AppImages|latest|Subsurface-*-x86_64.AppImage.zsync
 ```
 
 If an [AppImage] has [update information] embedded for this transport mechanism, then the following fields **MUST** be used; separated by a "|" character:
 
 Field | Type | Example | Comments
 ----------- | ------ | -------- | --------
-Transport mechanism | String | `gh-zsync` | [zsync] file and [AppImage] **MUST** be stored on GitHub Releases
+Transport mechanism | String | `gh-releases-zsync` | [zsync] file and [AppImage] **MUST** be stored on GitHub Releases
 Bintray username | String | `probono` | Name of the GitHub user or organization of the account where the [zsync] file and [AppImage] are stored
 Bintray repository | String | `AppImages` | Name of the GitHub repository in which the [zsync] file and [AppImage] are stored
 Release name | String | `latest` | Name of the release. `latest` will automatically use the latest release as determined by the GitHub API
