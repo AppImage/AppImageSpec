@@ -176,8 +176,9 @@ An [AppImage] **SHOULD** ship AppStream metadata in `usr/share/metainfo/$ID.appd
 
 An [AppImage] **MAY** have [update information] embedded for exactly one transport mechanism. The location in which this information is stored is defined by the [image format](#image-format). Currently two transport mechanisms are available, but only one can be used for each given [AppImage]:
 
- * [zsync]
- * bintray-zsync
+ * [`zsync`](#zsync)
+ * [`bintray-zsync`](#bintray-zsync)
+ * [`gh-releases-zsync`](#github-releases)
  
 ##### zsync
 
@@ -213,6 +214,9 @@ Bintray username | String | `probono` | Name of the GitHub user or organization 
 Bintray repository | String | `AppImages` | Name of the GitHub repository in which the [zsync] file and [AppImage] are stored
 Release name | String | `latest` | Name of the release. `latest` will automatically use the latest release as determined by the GitHub API
 Filename | String | `Subsurface-*-x86_64.AppImage.zsync` | Filename of the [zsync] file on GitHub, `*` is a wildcard
+
+**Please note that pre-releases are not being considered when using `latest`.** You will have to explicitly provide the name of a release. When using e.g., [uploadtool](https://github.com/probonopd/uploadtool), the name of the release created will always be `continuous`, hence, you can just specify that value instead of `latest`.
+
 
 ##### bintray-zsync
 
