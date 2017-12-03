@@ -1,4 +1,10 @@
-# AppImage Specification
+# AppImage Specification README
+
+----
+
+*For direct access to the current specification in writing please go to [draft.md](https://github.com/AppImage/AppImageSpec/blob/master/draft.md).*
+
+----
 
 This repository holds the specification for the AppImage format. The objectives of this specification are to:
 
