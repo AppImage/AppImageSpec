@@ -174,7 +174,7 @@ An [AppImage] **SHOULD** ship AppStream metadata in `usr/share/metainfo/$ID.appd
 
 #### Update information
 
-An [AppImage] **MAY** have [update information] embedded for exactly one transport mechanism. The location in which this information is stored is defined by the [image format](#image-format). Currently two transport mechanisms are available, but only one can be used for each given [AppImage]:
+An [AppImage] **MAY** have [update information] embedded for exactly one transport mechanism. The location in which this information is stored is defined by the [image format](#image-format). Currently three transport mechanisms are available, but only one can be used for each given [AppImage]:
 
  * [`zsync`](#zsync)
  * [`bintray-zsync`](#bintray-zsync)
