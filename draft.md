@@ -210,8 +210,8 @@ If an [AppImage] has [update information] embedded for this transport mechanism,
 Field | Type | Example | Comments
 ----------- | ------ | -------- | --------
 Transport mechanism | String | `gh-releases-zsync` | [zsync] file and [AppImage] **MUST** be stored on GitHub Releases
-Bintray username | String | `probono` | Name of the GitHub user or organization of the account where the [zsync] file and [AppImage] are stored
-Bintray repository | String | `AppImages` | Name of the GitHub repository in which the [zsync] file and [AppImage] are stored
+GitHub username | String | `probono` | Name of the GitHub user or organization of the account where the [zsync] file and [AppImage] are stored
+GitHub repository | String | `AppImages` | Name of the GitHub repository in which the [zsync] file and [AppImage] are stored
 Release name | String | `latest` | Name of the release. `latest` will automatically use the latest release as determined by the GitHub API
 Filename | String | `Subsurface-*x86_64.AppImage.zsync` | Filename of the [zsync] file on GitHub, `*` is a wildcard
 
