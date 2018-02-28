@@ -143,7 +143,7 @@ An [AppImage] which conforms to the type 2 image format:
 * **MUST** contain a file named `AppRun` in its root directory
 * **SHOULD** contain a [payload application] that is ultimately executed when the [AppImage] is executed
 * **SHOULD** contain exactly one `$APPNAME.desktop` file in its root directory with `$APPNAME` being the name of the [payload application]
-* **MAY** contain an `$APPNAME.png` file in its root directory with `$APPNAME` being the name of the [payload application] as set in the `Icon=` key of the `$APPNAME.desktop` file. If present, this icon **SHOULD** be given preference as the icon being used to represent the [AppImage]. The icon **SHOULD** be a png with 256x256 or 512*512 pixels
+* **MAY** contain an `$APPNAME.png` file in its root directory with `$APPNAME` being the name of the [payload application] as set in the `Icon=` key of the `$APPNAME.desktop` file. If present, this icon **SHOULD** be given preference as the icon being used to represent the [AppImage]. The icon **SHOULD** be a PNG with 256x256 or 512x512 pixels
 * **SHOULD** contain a `.DirIcon` file as per the [AppDir] specification
 
 #### The `AppRun` file:
@@ -166,7 +166,7 @@ An [AppImage] which conforms to the type 2 image format:
 
 ### Metadata
 
-Setion to be expanded; additional metadata is being discussed on <https://github.com/probonopd/AppImageKit/issues/59>
+Section to be expanded; additional metadata is being discussed on <https://github.com/probonopd/AppImageKit/issues/59>
 
 #### AppStream
 
