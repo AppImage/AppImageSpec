@@ -117,7 +117,7 @@ An [AppImage] which conforms to the type 1 image format:
 * **MUST**, when executed, mount the [AppImage] and execute the executable file `AppRun` contained in the root of the ISO 9660 filesystem
 * **MUST NOT** rely on any specific file name extension, although it is **RECOMMENDED** that the file name extension `.AppImage` is used whenever a file name extension is desired. Futher it is **RECOMMENDED** to follow the naming scheme `ApplicationName-$VERSION-$ARCH.AppImage` in cases in which it is desired to convey this information in the file name
 * **SHOULD** not be encapsulated in another archive/container format during download or when stored
-* **MUST** work even when stored in a filesystem path that contains blanks or when stored with a file name that contains blanks
+* **MUST** work when spaces are used in its own filesystem path, in its own file name and in paths and filenames it uses internally
 * **MAY** embed [update information] in the ISO 9660 Volume Descriptor field (offset 33651). If the information in this location is not in one of the known [update information] formats, then it **SHOULD** be empty and/or be ignored
 * **SHOULD** contain the magic hex `0x414901` at offset 8 ([why?](https://github.com/probonopd/AppImageKit/issues/144))
 
@@ -130,7 +130,7 @@ An [AppImage] which conforms to the type 2 image format:
 * **MUST**, when executed, mount the [AppImage] and execute the executable file `AppRun` contained in the root of the filesystem image
 * **MUST NOT** rely on any specific file name extension, although it is **RECOMMENDED** that the file name extension `.AppImage` is used whenever a file name extension is desired. Futher it is **RECOMMENDED** to follow the naming scheme `ApplicationName-$VERSION-$ARCH.AppImage` in cases in which it is desired to convey this information in the file name
 * **SHOULD** not be encapsulated in another archive/container format during download or when stored
-* **MUST** work even when stored in a filesystem path that contains blanks or when stored with a file name that contains blanks
+* **MUST** work when spaces are used in its own filesystem path, in its own file name and in paths and filenames it uses internally
 * **MAY** embed [update information] in the ELF section `.upd_info`. If the information in this location is not in one of the known [update information] formats, then it **SHOULD** be empty and/or be ignored
 * **MAY** embed a digital signature in the ELF section `.sha256_sig`. If this section exists then it **MUST** either be empty (filled with `0x00` padding) or contain a valid digital signature of the sha256 of the AppImage assuming the ELF section `.sha256_sig` being filled with `0x00` padding ([why?](https://github.com/probonopd/AppImageKit/issues/238#issuecomment-249412813))
 * **MUST** contain the magic hex `0x414902` at offset 8 ([why?](https://github.com/probonopd/AppImageKit/issues/144))
