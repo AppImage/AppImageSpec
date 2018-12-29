@@ -242,7 +242,7 @@ The software inside the [AppImage] **MAY** integrate into the desktop environmen
 
 The software inside the [AppImage] **SHOULD NOT** attempt to do desktop integration if at least one of the following conditions are met:
 
-* A file `$HOME/.local/share/appimagekit/no_desktopintegration` exists on the [target system]
+* A file `$XDG_DATA_HOME/appimagekit/no_desktopintegration` exists on the [target system] (with `$XDG_DATA_HOME` as defined in the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html))
 * A file `/usr/share/appimagekit/no_desktopintegration` exists on the [target system]
 * A file `/etc/appimagekit/no_desktopintegration` exists on the [target system]
 * A process named `appimaged` is running on the system
