@@ -142,10 +142,10 @@ An [AppImage] which conforms to the type 2 image format:
 * Is an [AppDir]
 * **MUST** contain a file named `AppRun` in its root directory
 * **SHOULD** contain a [payload application] that is ultimately executed when the [AppImage] is executed
-* **SHOULD** contain exactly one `$APPNAME.desktop` file in its root directory with `$APPNAME` being the name of the [payload application]
+* **MUST** contain exactly one `$APPNAME.desktop` file in its root directory with `$APPNAME` being the name of the [payload application]
 * **MAY** contain icon files below `usr/share/icons/hicolor` following the  [Icon Theme Specification](https://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html) for the icon identifier as set in the `Icon=` key of the `$APPNAME.desktop` file. If present, these icon files **SHOULD** be given preference as the icon being used to represent the [AppImage].
 * **MAY** contain an `$APPICON.svg`, `$APPICON.svgz` or `$APPICON.png` file in its root directory with `$APPICON` being the icon identifier as set in the `Icon=` key of the `$APPNAME.desktop` file. If present and no icon files matching the icon identifier present below `usr/share/icons/hicolor`, this icon **SHOULD** be given preference as the icon being used to represent the [AppImage]. If a PNG file, the icon **SHOULD** be of size 256x256, 512x512, or 1024x1024 pixels.
-* **SHOULD** contain a `.DirIcon` file as per the [AppDir] specification
+* **MUST** contain a `.DirIcon` file as per the [AppDir] specification
 
 #### The `AppRun` file:
 
