@@ -2,7 +2,7 @@
 
 #### Working Draft
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt).
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 The AppImage Specification is licensed under [The MIT License](https://github.com/AppImage/Spec/blob/master/LICENSE).
 
@@ -56,7 +56,7 @@ Draft | 2016-09-18 | Type 2 image format drafted
 ## Definitions
 
 ##### AppDir
-Application directories as used in the [ROX Desktop](http://rox.sourceforge.net/) - <http://rox.sourceforge.net/desktop/AppDirs.html>
+Application directories as used in the [ROX Desktop](http://rox.sourceforge.net/) - <https://rox.sourceforge.net/desktop/AppDirs.html>
 
 [AppDir]: #appdir "AppDir: Application Directory (as used in the ROX Desktop)"
 
@@ -76,7 +76,7 @@ A Desktop Entry File following the [Desktop Entry Specification](https://specifi
 [.desktop file]: #desktop-file ".desktop file: A Desktop Entry File following the Desktop Entry Specificiation"
 
 ##### MIME Types
-MIME type definitions are spread across several resources. The MIME type definitions should be in compliance with [RFC 6838](http://tools.ietf.org/html/rfc6838)
+MIME type definitions are spread across several resources. The MIME type definitions should be in compliance with [RFC 6838](https://tools.ietf.org/html/rfc6838)
 
 [MIME Type]: #mime-type "MIME Type: A media type or file format identifier"
 
@@ -109,9 +109,9 @@ Reserved for not fully standards-compliant AppImages (e.g., portable binaries th
 
 An [AppImage] which conforms to the type 1 image format:
 
-* **MUST** be an [ISO 9660](http://www.ecma-international.org/publications/standards/Ecma-119.htm) file
+* **MUST** be an [ISO 9660](https://www.ecma-international.org/publications/standards/Ecma-119.htm) file
 * **MUST** use [Rock Ridge](http://www.ymi.com/ymi/sites/default/files/pdf/Rockridge.pdf) extensions
-* **MAY** use [Joliet](http://support.microsoft.com/kb/125630) extensions
+* **MAY** use [Joliet](https://support.microsoft.com/kb/125630) extensions
 * **SHOULD** use [zisofs](http://libburnia-project.org/wiki/zisofs) compression
 * **MUST** be a valid [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) executable 
 * **MUST**, when executed, mount the [AppImage] and execute the executable file `AppRun` contained in the root of the ISO 9660 filesystem
@@ -163,7 +163,7 @@ An [AppImage] which conforms to the type 2 image format:
 * **MAY** be an ELF binary or an interpreted script
 * If it is an ELF binary, it **SHOULD** have as few dynamic library dependencies as possible and each dynamic library dependency **MUST** be included in the [AppImage] *IF* it cannot be assumed to be part of every [target system] in a recent enough version
 * If it is an interpreted script, it **SHOULD** be written in a language in which an interpreter can be assumed to be available on every [target system], otherwise the interpreter **MUST** be included in the [AppImage]
-* It is **RECOMMENDED** that the [payload application] and its dependencies are located in a `$PREFIX` directory tree inside the [AppDir] with `$PREFIX` commonly being `./usr/`; it is **RECOMMENDED** that the `$PREFIX` directory tree inside the [AppDir] follows the [File System Hierarchy conventions for `/usr`](http://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch04.html)
+* It is **RECOMMENDED** that the [payload application] and its dependencies are located in a `$PREFIX` directory tree inside the [AppDir] with `$PREFIX` commonly being `./usr/`; it is **RECOMMENDED** that the `$PREFIX` directory tree inside the [AppDir] follows the [File System Hierarchy conventions for `/usr`](https://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch04.html)
 
 ### Metadata
 
@@ -186,7 +186,7 @@ An [AppImage] **MAY** have [update information] embedded for exactly one transpo
 The __[zsync]__ transport requires a HTTP server that can handle HTTP range requests. Its [update information] is in the form
 
 ```
-zsync|http://server.domain/path/Application-latest-x86_64.AppImage.zsync
+zsync|https://server.domain/path/Application-latest-x86_64.AppImage.zsync
 ```
 
 If an [AppImage] has [update information] embedded for this transport mechanism, then the following fields **MUST** be used; separated by a "|" character:
@@ -194,7 +194,7 @@ If an [AppImage] has [update information] embedded for this transport mechanism,
 Field | Type | Example | Comments
 ----------- | ------ | -------- | --------
 Transport mechanism | String | `zsync` | [zsync] file and [AppImage] **MUST** be stored on  [compatible](http://zsync.moria.org.uk/server-issues) HTTP server
-zsync file URL | String | `http://server.domain/path/Application-latest-x86_64.AppImage.zsync` | URL to the `.zsync` file (URL **MUST NOT** change from version to version)
+zsync file URL | String | `https://server.domain/path/Application-latest-x86_64.AppImage.zsync` | URL to the `.zsync` file (URL **MUST NOT** change from version to version)
 
 For an overview about [zsync] and how to create `.zsync` files, see [http://zsync.moria.org.uk/](http://zsync.moria.org.uk/).
 
@@ -221,7 +221,7 @@ Filename | String | `Subsurface-*x86_64.AppImage.zsync` | Filename of the [zsync
 
 ##### bintray-zsync
 
-The __bintray-zsync__ transport extends the [zsync] transport in that it uses version information from [Bintray](http://bintray.com/). Its [update information] is in the form
+The __bintray-zsync__ transport extends the [zsync] transport in that it uses version information from [Bintray](https://bintray.com/). Its [update information] is in the form
 
 ```
 bintray-zsync|probono|AppImages|Subsurface|Subsurface-_latestVersion-x86_64.AppImage.zsync
