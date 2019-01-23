@@ -56,7 +56,7 @@ Draft | 2016-09-18 | Type 2 image format drafted
 ## Definitions
 
 ##### AppDir
-Application directories as used in the [ROX Desktop](http://rox.sourceforge.net/) - <https://rox.sourceforge.net/desktop/AppDirs.html>
+Application directories as used in the [ROX Desktop](http://rox.sourceforge.net/) - <http://rox.sourceforge.net/desktop/AppDirs.html>
 
 [AppDir]: #appdir "AppDir: Application Directory (as used in the ROX Desktop)"
 
