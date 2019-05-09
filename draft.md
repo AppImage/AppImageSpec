@@ -52,6 +52,7 @@ Version | Date | Notes
 --- | --- | ---
 Draft | 2016-06-15 | Initial draft of the AppImage Specification started
 Draft | 2016-09-18 | Type 2 image format drafted
+Draft | 2019-05-09 | `.DirIcon` must follow the Thumbnail Managing Standard Specifications
 
 ## Definitions
 
@@ -145,7 +146,7 @@ An [AppImage] which conforms to the type 2 image format:
 * **SHOULD** contain exactly one `$APPNAME.desktop` file in its root directory with `$APPNAME` being the name of the [payload application]
 * **SHOULD** contain icon files below `usr/share/icons/hicolor` following the  [Icon Theme Specification](https://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html) for the icon identifier as set in the `Icon=` key of the `$APPNAME.desktop` file. If present, these icon files **SHOULD** be given preference as the icon being used to represent the [AppImage].
 * **MAY** contain an `$APPICON.svg`, `$APPICON.svgz` or `$APPICON.png` file in its root directory with `$APPICON` being the icon identifier as set in the `Icon=` key of the `$APPNAME.desktop` file. If present and no icon files matching the icon identifier present below `usr/share/icons/hicolor`, this icon **SHOULD** be given preference as the icon being used to represent the [AppImage]. If a PNG file, the icon **SHOULD** be of size 256x256, 512x512, or 1024x1024 pixels.
-* **MUST** contain a `.DirIcon` file as per the [AppDir] specification
+* **MUST** contain a `.DirIcon` file that follows the [Thumbnail Managing Standard Specification](https://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html#AEN144) format for large thumbnails. To be more specific it must be a 8bit, 256x256, non-interlaced PNG image with full alpha transparency.
 
 #### The `AppRun` file:
 
