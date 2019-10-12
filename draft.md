@@ -181,6 +181,8 @@ An [AppImage] **MAY** have [update information] embedded for exactly one transpo
  * [`bintray-zsync`](#bintray-zsync)
  * [`gh-releases-zsync`](#github-releases)
  
+*Several tools such as `appimagetool` can create the `.zsync` file automatically when building the AppImage. Please refer to the [guide](https://docs.appimage.org/packaging-guide/optional/updates.html#using-appimagetool) for further information.*
+ 
 ##### zsync
 
 The __[zsync]__ transport requires a HTTP server that can handle HTTP range requests. Its [update information] is in the form
