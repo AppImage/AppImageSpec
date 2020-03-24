@@ -133,6 +133,18 @@ An [AppImage] which conforms to the type 2 image format:
 * **MUST** work when spaces are used in its own filesystem path, in its own file name and in paths and filenames it uses internally
 * **MAY** embed [update information] in the ELF section `.upd_info`. If the information in this location is not in one of the known [update information] formats, then it **SHOULD** be empty and/or be ignored
 * **MAY** embed a digital signature in the ELF section `.sha256_sig`. If this section exists then it **MUST** either be empty (filled with `0x00` padding) or contain a valid digital signature of the sha256 of the AppImage assuming the ELF section `.sha256_sig` being filled with `0x00` padding ([why?](https://github.com/probonopd/AppImageKit/issues/238#issuecomment-249412813))
+* **MAY** embed a digital signature in the ELF section `.sha256_sig`. If this section exists then it **MUST** **EITHER** be empty (filled with `0x00` padding) **OR** start with an OpenGPG ASCII Armored block as defined per [RFC 4880](https://tools.ietf.org/html/rfc4880) containing a detached signature. Trailing space SHOULD be filled with `0x00` padding. Keep special attention to the following RFC note:
+
+  > Note that all these Armor Header Lines are to consist of a complete
+    line.  That is to say, there is always a line ending preceding the
+    starting five dashes, and following the ending five dashes.  The
+    header lines, therefore, MUST start at the beginning of a line, and
+    MUST NOT have text other than whitespace following them on the same
+    line.
+
+  * This means that a valid digital signature **MUST** begin with a newline character, and end with a newline character, and **SHOULD** be followed by as many `0x00` bytes as required in order to fill the ELF section.
+  * The signed plaintext **MUST** be the ASCII string that results from converting into hexadecimal notation the binary bytes of the SHA-256 hash of the ELF file when substituting the `.sha256_sig` and `.upd_info` ELF sections with `0x00` padding.
+
 * **MUST** contain the magic hex `0x414902` at offset 8 ([why?](https://github.com/probonopd/AppImageKit/issues/144))
 
 ### Contents of the image
