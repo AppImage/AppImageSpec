@@ -178,7 +178,6 @@ An [AppImage] **SHOULD** ship AppStream metadata in `usr/share/metainfo/$ID.appd
 An [AppImage] **MAY** have [update information] embedded for exactly one transport mechanism. The location in which this information is stored is defined by the [image format](#image-format). Currently three transport mechanisms are available, but only one can be used for each given [AppImage]:
 
  * [`zsync`](#zsync)
- * [`bintray-zsync`](#bintray-zsync)
  * [`gh-releases-zsync`](#github-releases)
  
 *Several tools such as `appimagetool` can create the `.zsync` file automatically when building the AppImage. Please refer to the [guide](https://docs.appimage.org/packaging-guide/optional/updates.html#using-appimagetool) for further information.*
@@ -223,21 +222,7 @@ Filename | String | `Subsurface-*x86_64.AppImage.zsync` | Filename of the [zsync
 
 ##### bintray-zsync
 
-The __bintray-zsync__ transport extends the [zsync] transport in that it uses version information from [Bintray](https://bintray.com/). Its [update information] is in the form
-
-```
-bintray-zsync|probono|AppImages|Subsurface|Subsurface-_latestVersion-x86_64.AppImage.zsync
-```
-
-If an [AppImage] has [update information] embedded for this transport mechanism, then the following fields **MUST** be used; separated by a "|" character:
-
-Field | Type | Example | Comments
------------ | ------ | -------- | --------
-Transport mechanism | String | `bintray-zsync` | [zsync] file and [AppImage] **MUST** be stored on Bintray
-Bintray username | String | `probono` | Name of the user or organization of the account where the [zsync] file and [AppImage] are stored
-Bintray repository | String | `AppImages` | Name of the repository in which the [zsync] file and [AppImage] are stored
-Bintray package name | String | `Subsurface` | Name of the [Bintray package](https://bintray.com/docs/usermanual/uploads/uploads_creatinganewpackage.html) in which the [zsync] file and [AppImage] are stored
-Bintray zsync path | String | `Subsurface-_latestVersion-x86_64.AppImage.zsync` | Path where the [zsync] file is stored on Bintray (**MUST NOT** change from version to version). Note the use of the Bintray feature `_latestVersion` to facilitate this
+The __bintray-zsync__ transport was there to support [Bintray](https://bintray.com/). It is deprecated.
 
 ### Desktop integration
 
