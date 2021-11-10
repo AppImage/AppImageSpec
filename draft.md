@@ -220,6 +220,29 @@ Filename | String | `Subsurface-*x86_64.AppImage.zsync` | Filename of the [zsync
 **Please note that pre-releases are not being considered when using `latest`.** You will have to explicitly provide the name of a release. When using e.g., [uploadtool](https://github.com/probonopd/uploadtool), the name of the release created will always be `continuous`, hence, you can just specify that value instead of `latest`.
 
 
+##### Pling/AppImageHub
+
+[Pling](www.pling.com) is a contents store which allows uploading AppImages. It also includes an AppImage exclusive catalog which is available at [www.appimagehub.com](). This transport method 
+extends [zsync] and uses the file name sorting to determine the latest release. Its [update information] is in the form
+
+```
+pling-v1-zsync|1623134|*-stable-x86_64.AppImage
+```
+
+
+If an [AppImage] has [update information] embedded for this transport mechanism, then the following fields **MUST** be used; separated by a "|" character:
+
+Field | Type | Example | Comments
+----------- | ------ | -------- | --------
+Transport mechanism | String | `pling-v1-zsync` | [AppImage] file **MUST** be stored in pling.com
+Product ID | String | `1623134` | Id given by pling.com when the product is created.
+File Matching Pattern | String | `*-stable-x86_64.AppImage` | [Wildcard matching expression](http://www.gnu.org/software/libc/manual/html_node/Wildcard-Matching.html), **MAY** contain a release channel name. **MUST** contain the target architecture. When sorted by file name they **MUST** follow the release order.
+
+**Please notice** that all file names must follow an specific pattern defined by the packager (you). But it's recommended to include the target application name, the version, the release channel, the architecture and the `.AppImage` extensions as follows: `bash-5.4.0-stable-x86_64.AppImage`. You **MUST NOT** upload the zsync file to the Pling store.
+
+You can visit https://www.pling.com/product/add to register a new product on the Pling store.
+
+
 ##### bintray-zsync
 
 The __bintray-zsync__ transport was there to support [Bintray](https://bintray.com/). It is deprecated.
