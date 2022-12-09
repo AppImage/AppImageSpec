@@ -171,7 +171,7 @@ Section to be expanded; additional metadata is being discussed on <https://githu
 
 #### AppStream
 
-An [AppImage] **SHOULD** ship AppStream metadata in `usr/share/metainfo/$ID.appdata.xml` with `$ID` being the AppStream ID. Shipping AppStream information enables the [AppImage] to be discoverable in application centers and/or application directory websites. If it does, then it **MUST** follow the AppStream [guidelines for applications](https://github.com/hughsie/appstream-glib#guidelines-for-applications). See [examples](https://packages.debian.org/search?searchon=contents&keywords=appdata.xml&mode=filename&suite=unstable&arch=any) for such files in the debian repository.
+An [AppImage] **SHOULD** ship AppStream metadata in `usr/share/metainfo/$ID.metainfo.xml` with `$ID` being the AppStream ID. Shipping AppStream information enables the [AppImage] to be discoverable in application centers and/or application directory websites. If it does, then it **MUST** follow the AppStream [specification](https://www.freedesktop.org/software/appstream/docs/). See [examples](https://packages.debian.org/search?searchon=contents&keywords=appdata.xml&mode=filename&suite=unstable&arch=any) for such files in the debian repository.
 
 #### Update information
 
