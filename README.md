@@ -16,8 +16,6 @@ This repository holds the specification for the AppImage format. The objectives 
 6. Indicate the direction of the project and warn developers of future changes to the AppImage format
 7. Document the open nature of the AppImage format
 
-[AppImageKit](https://github.com/probonopd/AppImageKit) is becoming a reference implementation of building standards-compliant AppImages, and the [AppImages](https://github.com/probonopd/AppImages) repository provides examples.
-
 ## Contributing
 
 * Proposals are discussed via GitHub Issues
@@ -36,4 +34,6 @@ File | Purpose
 [draft.md](draft.md) | Working document with proposed changes for the next specification release
 versions/ | Directory for released versions of the specification
 versions/v1.0.md | Version 1.0 of the specification
-versions/v2.0.md | ...
+versions/v2.0.md | Major spec version 2.0 (MAY contain breaking changes)
+versions/v2.1.md | Minor spec version 1.1 (MUST NOT contain breaking changes)
+drafts/v3.0.md | Working draft of an upcoming specification (may or may not be released as v3.0 at some point in time)
