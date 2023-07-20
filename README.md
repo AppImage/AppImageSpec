@@ -2,10 +2,6 @@
 
 ----
 
-*For direct access to the current specification in writing please go to [draft.md](https://github.com/AppImage/AppImageSpec/blob/master/draft.md).*
-
-----
-
 This repository holds the specification for the AppImage format. The objectives of this specification are to:
 
 1. Be a single, definitive source of information about the AppImage format
@@ -31,7 +27,6 @@ File | Purpose
 ---|---
 [README.md](README.md) | Instructions for contributing
 [LICENSE](LICENSE) | Copyright and license
-[draft.md](draft.md) | Working document with proposed changes for the next specification release
 versions/ | Directory for released versions of the specification
 versions/v1.0.md | Version 1.0 of the specification
 versions/v2.0.md | Major spec version 2.0 (MAY contain breaking changes)
