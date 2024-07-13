@@ -19,7 +19,7 @@ The AppImage Specification is licensed under [The MIT License](https://github.co
     - [Contents of the image]
         + [The filesystem image]
         + [The AppRun file]
-        + [The payload application]run
+        + [The payload application]
     - [Metadata]
         + [AppStream]
         + [Update Information]
