@@ -252,7 +252,7 @@ The __bintray-zsync__ transport was there to support [Bintray](https://bintray.c
 
 The AppImage runtime is the program that mounts the filesystem image and executes the payload.
 
-If the AppImage runtime is a static binary, then it **MUST** support the environment variable `TARGET_APPIMAGE`. If set to an existing path, then the AppImage Runtime will use the filesystem image from the AppImage at that path for all its operations rather than the filesystem image appended to the runtime binary.
+If the AppImage runtime is a static binary, then it **MUST** support the environment variable `TARGET_APPIMAGE`. All runtimes **SHOULD** implement this environment variable. If set to an existing path, then the AppImage Runtime will use the filesystem image from the AppImage at that path for all its operations rather than the filesystem image appended to the runtime binary.
 
 ### Desktop integration
 
