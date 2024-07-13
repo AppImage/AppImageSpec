@@ -23,6 +23,7 @@ The AppImage Specification is licensed under [The MIT License](https://github.co
     - [Metadata]
         + [AppStream]
         + [Update Information]
+    - [Runtime]
     - [Desktop Integration]
 
 [Introduction]: #introduction "Introduction"
@@ -246,6 +247,12 @@ You can visit https://www.pling.com/product/add to register a new product on the
 ##### bintray-zsync
 
 The __bintray-zsync__ transport was there to support [Bintray](https://bintray.com/). It is deprecated.
+
+### Runtime
+
+The AppImage runtime is the program that mounts the filesystem image and executes the payload.
+
+If the AppImage runtime is a static binary, then it **MUST** support the environment variable `TARGET_APPIMAGE`. All runtimes **SHOULD** implement this environment variable. If set to an existing path, then the AppImage Runtime will use the filesystem image from the AppImage at that path for all its operations rather than the filesystem image appended to the runtime binary.
 
 ### Desktop integration
 
