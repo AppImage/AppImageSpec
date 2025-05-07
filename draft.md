@@ -100,7 +100,7 @@ A file transfer algorithm which implements efficient download of only the conten
 
 ### Image format
 
-The image format determines how an [AppImage] is represented on disk. Currently there is only one defined image format, however, there could be additional image formats in the future.
+The image format determines how an [AppImage] is represented on disk. Currently there are two defined image formats, however, there could be additional image formats in the future.
 
 #### Type 0 image format
 
