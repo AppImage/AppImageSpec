@@ -215,10 +215,23 @@ Field | Type | Example | Comments
 Transport mechanism | String | `gh-releases-zsync` | [zsync] file and [AppImage] **MUST** be stored on GitHub Releases
 GitHub username | String | `probono` | Name of the GitHub user or organization of the account where the [zsync] file and [AppImage] are stored
 GitHub repository | String | `AppImages` | Name of the GitHub repository in which the [zsync] file and [AppImage] are stored
-Release name | String | `latest` | Name of the release. `latest` will automatically use the latest release as determined by the GitHub API
+Release name | String | `latest` | Name of the release. See below for special values like `latest`.
 Filename | String | `Subsurface-*x86_64.AppImage.zsync` | Filename of the [zsync] file on GitHub, `*` is a wildcard
 
-**Please note that pre-releases are not being considered when using `latest`.** You will have to explicitly provide the name of a release. When using e.g., [uploadtool](https://github.com/probonopd/uploadtool), the name of the release created will always be `continuous`, hence, you can just specify that value instead of `latest`.
+
+###### *Release name* values
+
+**TL;DR: pre-releases are not being considered when using `latest`.**
+
+The following *special values* are supported:
+
+- `latest`: Automatically detects the latest GitHub **Release**
+- `latest-pre`: Automatically detects the latest GitHub **Prerelease**. Useful, e.g., to implement a beta/prerelease update concept.
+- `latest-all`: Automatically detects the latest GitHub **Release or Prerelease**. Useful if you want prerelease users to automatically switch to a stable release until another prerelease is made.
+
+Every other value is mapped to the name of a release.
+
+**Note: when using a continuous release upload tool like [uploadtool](https://github.com/probonopd/uploadtool) which recreates the release during every build with the same name, e.g., `continuous`, you can also specify, e.g., the name `continuous` to implement a continuous update strategy which always checks the same GitHub release.
 
 
 ##### Pling/AppImageHub
