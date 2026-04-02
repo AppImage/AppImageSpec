@@ -111,9 +111,9 @@ Reserved for not fully standards-compliant AppImages (e.g., portable binaries th
 An [AppImage] which conforms to the type 1 image format:
 
 * **MUST** be an [ISO 9660](https://www.ecma-international.org/publications/standards/Ecma-119.htm) file
-* **MUST** use [Rock Ridge](http://www.ymi.com/ymi/sites/default/files/pdf/Rockridge.pdf) extensions
+* **MUST** use [Rock Ridge](https://en.wikipedia.org/wiki/ISO_9660#Rock_Ridge) extensions
 * **MAY** use [Joliet](https://learn.microsoft.com/en-us/windows/win32/imapi/disc-formats#joliet) extensions
-* **SHOULD** use [zisofs](http://libburnia-project.org/wiki/zisofs) compression
+* **SHOULD** use [zisofs](http://fileformats.archiveteam.org/wiki/Zisofs) compression
 * **MUST** be a valid [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) executable 
 * **MUST**, when executed, mount the [AppImage] and execute the executable file `AppRun` contained in the root of the ISO 9660 filesystem
 * **MUST NOT** rely on any specific file name extension, although it is **RECOMMENDED** that the file name extension `.AppImage` is used whenever a file name extension is desired. Futher it is **RECOMMENDED** to follow the naming scheme `ApplicationName-$VERSION-$ARCH.AppImage` in cases in which it is desired to convey this information in the file name
