@@ -112,7 +112,7 @@ An [AppImage] which conforms to the type 1 image format:
 
 * **MUST** be an [ISO 9660](https://www.ecma-international.org/publications/standards/Ecma-119.htm) file
 * **MUST** use [Rock Ridge](http://www.ymi.com/ymi/sites/default/files/pdf/Rockridge.pdf) extensions
-* **MAY** use [Joliet](https://support.microsoft.com/kb/125630) extensions
+* **MAY** use [Joliet](https://learn.microsoft.com/en-us/windows/win32/imapi/disc-formats#joliet) extensions
 * **SHOULD** use [zisofs](http://libburnia-project.org/wiki/zisofs) compression
 * **MUST** be a valid [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) executable 
 * **MUST**, when executed, mount the [AppImage] and execute the executable file `AppRun` contained in the root of the ISO 9660 filesystem
