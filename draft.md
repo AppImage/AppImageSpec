@@ -16,6 +16,7 @@ The AppImage Specification is licensed under [The MIT License](https://github.co
         + [Type 0 image format]
         + [Type 1 image format]
         + [Type 2 image format]
+        + [Type 3 image format]
     - [Contents of the image]
         + [The filesystem image]
         + [The AppRun file]
@@ -34,6 +35,7 @@ The AppImage Specification is licensed under [The MIT License](https://github.co
   [Type 0 image format]: #type-0-image-format "Specification - Image Format - Type 0 image format"
   [Type 1 image format]: #type-1-image-format "Specification - Image Format - Type 1 image format"
   [Type 2 image format]: #type-2-image-format "Specification - Image Format - Type 2 image format"
+  [Type 3 image format]: #type-3-image-format "Specification - Image Format - Type 3 image format"
 [Contents of the image]: #contents-of-the-image "Specification - Contents of the image"
   [The filesystem image]: #the-filesystem-image "Specification - Contents of the image - The filesystem image"
   [The AppRun file]: #the-apprun-file "Specification - Contents of the image - The AppRun file"
@@ -128,6 +130,39 @@ An [AppImage] which conforms to the type 2 image format:
 
 * **MUST** be a valid [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) executable 
 * **MUST** have appended to it a filesystem that the ELF part can mount
+* **MUST**, when executed, mount the [AppImage] and execute the executable file `AppRun` contained in the root of the filesystem image
+* **MUST NOT** rely on any specific file name extension, although it is **RECOMMENDED** that the file name extension `.AppImage` is used whenever a file name extension is desired. Futher it is **RECOMMENDED** to follow the naming scheme `ApplicationName-$VERSION-$ARCH.AppImage` in cases in which it is desired to convey this information in the file name
+* **SHOULD** not be encapsulated in another archive/container format during download or when stored
+* **MUST** work when spaces are used in its own filesystem path, in its own file name and in paths and filenames it uses internally
+* **MAY** embed [update information] in the ELF section `.upd_info`. If the information in this location is not in one of the known [update information] formats, then it **SHOULD** be empty and/or be ignored
+* **MAY** embed a digital signature in the ELF section `.sha256_sig`. If this section exists then it **MUST** either be empty (filled with `0x00` padding) or contain a valid digital signature of the sha256 of the AppImage assuming the ELF section `.sha256_sig` being filled with `0x00` padding ([why?](https://github.com/probonopd/AppImageKit/issues/238#issuecomment-249412813))
+* **MUST** contain the magic hex `0x414902` at offset 8 ([why?](https://github.com/probonopd/AppImageKit/issues/144))
+
+#### Type 3 image format
+
+An [AppImage] which conforms to the type 3 image format:
+
+* **MUST** be a valid [STATIC](https://en.wikipedia.org/wiki/Static_build)-[PIE](https://en.wikipedia.org/wiki/Position-independent_code) [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) executable 
+* **MUST** have appended to it a filesystem that the ELF part can mount
+* **MUST** be able to use FUSE and mount namespaces to mount the filesystem. **SHOULD** also automatically fallback to extracting and running the filesystem with post cleanup if the FUSE and mount namespaces are not available in the target system
+* **MUST** mount the filesystem at the location specific in the `TMPDIR` and if the enviroment varialbe is NOT set, use `/tmp`. The mountpoint **SHOULD** be a unique hash of the AppImage and not random every time.
+* **MUST** set the following enviroment variables:
+    * `APPIMAGE` Which points to the location of the AppImage with symlinks followed
+    * `ARG0` Which points to the location of the AppImage without following symlinks
+    * `OWD` Path to the working directory when the AppImage was executed
+* **MUST** support the following flags:
+    * `--appimage-extract` Which extracts the content of the filesystem to an `AppDir` directory in the current working directory. It **SHOULD** also make a `squashfs-root` symlink to that directory. It **MUST** also support partial extraction with simple globbing, example: `--appimage-extract *.desktop`
+    * `--appimage-portable-home` Which makes a `${APPIMAGE}.home` directory and sets the `HOME` envrioment variable to
+    * `--appimage-portable-share` Which makes a `${APPIMAGE}.share` directory and sets the `XDG_DATA_HOME` envrioment variable to
+    * `--appimage-portable-config` Which makes a `${APPIMAGE}.config` directory and sets the `XDG_CONFIG_HOME` envrioment variable to
+    * `--appimage-portable-cache` Which makes a `${APPIMAGE}.cache` directory and sets the `XDG_CACHE_HOME` envrioment variable to
+    The AppImage **MUST** also preserve the original values of `HOME`, `XDG_DATA_HOME`, `XDG_CONFIG_HOME` and `XDG_CACHE_HOME` by setting the following envrioment variables:
+        * `REAL_HOME` To the value of `HOME` before chaging it
+        * `REAL_XDG_DATA_HOME` To the value of `XDG_DATA_HOME` before chaging it
+        * `REAL_XDG_CONFIG_HOME` To the value of `XDG_CONFIG_HOME` before changing it
+        * `REAL_XDG_CACHA_HOME` To the value of `XDG_CACHE_HOME` before changing it
+    * If the `REAL_*` enviroment variables are already set, the AppImage **MUST NOT** change their value
+    * If XDG enviroment variables are empty, the AppImage **MUST** set the `REAL_*` variables to the defaults specificed in the [XDG Base directory specification](https://specifications.freedesktop.org/basedir/latest/)
 * **MUST**, when executed, mount the [AppImage] and execute the executable file `AppRun` contained in the root of the filesystem image
 * **MUST NOT** rely on any specific file name extension, although it is **RECOMMENDED** that the file name extension `.AppImage` is used whenever a file name extension is desired. Futher it is **RECOMMENDED** to follow the naming scheme `ApplicationName-$VERSION-$ARCH.AppImage` in cases in which it is desired to convey this information in the file name
 * **SHOULD** not be encapsulated in another archive/container format during download or when stored
